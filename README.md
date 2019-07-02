@@ -1,5 +1,4 @@
 # WebApps
-# AS400 Apps
 Web Stack programming. 
 Includes HTML / CSS / JavaScript / MySQL / PHP
 Web Apps:
