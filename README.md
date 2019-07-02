@@ -1,7 +1,7 @@
 # WebApps
-
-This is a collection of my web programming work.
-
+# AS400 Apps
+Web Stack programming. 
+Includes HTML / CSS / JavaScript / MySQL / PHP
 Web Apps:
 1. Customer Maintenance Program
 
