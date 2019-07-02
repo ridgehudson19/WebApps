@@ -6,6 +6,12 @@ Web Apps:
 1. Customer Maintenance Program
 
 <br>
-username: testuser
+username: rhudson19
 <br>
-password: testuser1
+password: rhudson19
+<br>
+library: rhudson191
+<br>
+source files: qrpglesrc, qddssrc, qmenusrc
+<br>
+<h3> use 'GO APPMENU' command to use program
