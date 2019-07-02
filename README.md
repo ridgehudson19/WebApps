@@ -14,4 +14,4 @@ library: rhudson191
 <br>
 source files: qrpglesrc, qddssrc, qmenusrc
 <br>
-<h3> use 'GO APPMENU' command to use program
+<h3> use 'GO APPMENU' command to execute programs
