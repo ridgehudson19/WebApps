@@ -102,32 +102,38 @@ if(isset($_POST["submit"]))
 				
 				if ($row['MaxCustomer'] > 0)
 				{
-					$item1 = $row['MaxCustomer'];
+					$CustID = $row['MaxCustomer'];
 				}
 				
 				else
 				{
-					$item1 = 1;
+					$CustID = 1;
 				}
 				
 							
 				
-                $item2 = mysqli_real_escape_string($conn, $data[1]);
-                $item3 = mysqli_real_escape_string($conn, $data[2]);
-                $item4 = mysqli_real_escape_string($conn, $data[3]);
-                $item5 = mysqli_real_escape_string($conn, $data[4]);
-                $item6 = mysqli_real_escape_string($conn, $data[5]);
-                $item7 = mysqli_real_escape_string($conn, $data[6]);
-                $item8 = mysqli_real_escape_string($conn, $data[7]);
-                $item9 = mysqli_real_escape_string($conn, $data[8]);
-                $item10 = mysqli_real_escape_string($conn, $data[9]);
-                $item11 = mysqli_real_escape_string($conn, $data[10]);
+                $CompanyName = mysqli_real_escape_string($conn, $data[0]);
+                $Phone = mysqli_real_escape_string($conn, $data[1]);
+                $TollFreePhone = mysqli_real_escape_string($conn, $data[2]);
+                $FirstName = mysqli_real_escape_string($conn, $data[3]);
+                $LastName = mysqli_real_escape_string($conn, $data[4]);
+                $Address = mysqli_real_escape_string($conn, $data[5]);
+                $City = mysqli_real_escape_string($conn, $data[6]);
+                $State = mysqli_real_escape_string($conn, $data[7]);
+                $Zip = mysqli_real_escape_string($conn, $data[8]);
+                $Email = mysqli_real_escape_string($conn, $data[9]); 
+				 
+				
+				if (trim($data[0]) != ""){
                 $query = "INSERT into CustomerMaster(CustomerID, FirstName, LastName, CompanyName, Address, City, State, Zip, Phone, TollFreePhone, Email ) 
-											  values($item1,'$item2','$item3','$item4','$item5','$item6','$item7','$item8','$item9','$item10','$item11')";
+											  values($CustID,'$FirstName','$LastName','$CompanyName','$Address','$City','$State','$Zip','$Phone','$TollFreePhone','$Email')";
                 mysqli_query($conn, $query); 
+				}
    }
    fclose($handle);
    
+				echo ($CompanyName . " " . $Phone . " " . $TollFreePhone . " " .  $FirstName . " " .  $LastName . " " .  $Address . " " .  $City . " " .  $State . " " .  $Zip . " " .  $Email);
+			 
    echo "file uploaded successfully";
    
   }

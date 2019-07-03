@@ -9,18 +9,25 @@
 	include '../../../../Includes/dbconnect.php';
 	
 	$output = fopen("php://output", "w");
-	fputcsv($output, array('CustomerID', 'CompanyName'));
+	fputcsv($output, array('CompanyName', 'Phone', 'Toll-Free Phone', 'First Name', 'Last Name',
+	                       'Address', 'City', 'State', 'Zip-Code', 'Email'));
 	
-    $sql = "SELECT * FROM CustomerMaster";
+    $sql = "SELECT CompanyName, Phone, TollFreePhone, FirstName, LastName,
+		           Address, City, State, Zip, Email 
+			  FROM CustomerMaster";
+			  
 	$result = $conn->query($sql);
     if ($result->num_rows > 0) 
     { 
 			  
 	   // output data of each row
        while($row = $result->fetch_assoc()) 
-	   {   
-			fputcsv($output, $row);
-       } 
+	   {    
+			fputcsv($output, array($row["CompanyName"], $row["Phone"], $row["TollFreePhone"], 
+								   $row["FirstName"], $row["LastName"], $row["Address"],
+								   $row["City"], $row["State"], $row["Zip"], $row["Email"]));
+			 
+	   } 
    } 
    
    else 

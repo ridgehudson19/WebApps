@@ -6,7 +6,7 @@
 	
 	include '../../../../Includes/dbconnect.php'; 
  
-    $sql = "SELECT * FROM CustomerMaster";
+    $sql = "SELECT * FROM CustomerMaster ORDER BY CompanyName ASC";
 	$result = $conn->query($sql);
  
     if ($result->num_rows > 0) 
@@ -14,14 +14,15 @@
 		echo "<table id='t01'>";
 		
 		echo "<tr> 
-				<th> Customer ID </th> 
 				<th> Company Name </th> 
+				<th> Phone </th> 
+				<th> Toll-Free Phone </th> 
+				<th> First Name </th> 
+				<th> Last Name </th> 
 				<th> Address </th> 
 				<th> City </th> 
 				<th> State </th> 
-				<th> Zip </th> 
-				<th> Phone </th> 
-				<th> Toll-Free Phone </th> 
+				<th> Zip-Code </th> 
 				<th> Email </th> 
 			  </tr>";
 			  
@@ -29,14 +30,15 @@
        while($row = $result->fetch_assoc()) 
 	   { 
          echo "<tr>" . 
-		      "<td>" . $row["CustomerID"] . "</td>" .  
 		      "<td>" . $row["CompanyName"] . "</td>" .  
+	          "<td>" . $row["Phone"] . "</td>" .  
+	          "<td>" . $row["TollFreePhone"] . "</td>" .  
+	          "<td>" . $row["FirstName"] . "</td>" .  
+	          "<td>" . $row["LastName"] . "</td>" .  
 	          "<td>" . $row["Address"] . "</td>" .  
 	          "<td>" . $row["City"] . "</td>" .  
 	          "<td>" . $row["State"] . "</td>" .  
 	          "<td>" . $row["Zip"] . "</td>" .  
-	          "<td>" . $row["Phone"] . "</td>" .  
-	          "<td>" . $row["TollFreePhone"] . "</td>" .  
 	          "<td>" . $row["Email"] . "</td>" .  
 			  "</tr>";
        } 
