@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Header-->
+<%- include('layouts/header'); -%>
+
+    <body>
+        <!-- Navigation-->
+		<%- include('layouts/navbar'); -%>
+
+
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url('/assets/img/home-bg.jpg'); height:800px">
+            <div class="container position-relative px-4 px-lg-5" >
+                <div class="row gx-4 gx-lg-5 justify-content-center" >
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+					
+						<div class="p-3 mb-2 bg-light text-dark" style="opacity:.94;margin-top:-90px">
+							<div class="site-heading">
+								<h1 style="font-size:60px">Welcome!</h1>
+								
+								<img alt="" class="image_round" src="/assets/img/headshot.jpg" width="200" height="200">
+								
+								<span class="subheading">
+														 My name is Ridge Hudson and I am a software developer <br> currently residing in Jacksonville, Florida.<br><br> 
+														 
+														 My blog is a collection of examples of different <br> programming languages I can write in <br>
+														 And projects I have completed. <br>
+								</span>
+							</div>
+						</div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Main Content-->
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+				
+				<% for (var i = 0; i < blogposts.length; i++) { %>
+				
+                    <!-- Post preview-->
+                    <div class="post-preview">
+                        <a href="/post/<%= blogposts[i]._id%>">
+                            <h2 class="post-title">
+							<%= blogposts[i].title %>
+							</h2>
+                            <h3 class="post-subtitle">
+							<%- blogposts[i].body %>
+							</h3>
+                        </a>
+                        <p class="post-meta">
+                            Posted by
+                            <a href="#"><%= blogposts[i].userid.username %></a>
+                            on <%= blogposts[i].datePosted %>
+                        </p>
+                    </div>
+                    <!-- Divider-->
+                    <hr class="my-4" />
+					<% } %>
+                   
+                    <!-- Pager-->
+                    <!--<div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Older Posts →</a></div> -->
+                </div> 
+            </div>
+        </div>
+		
+        <!-- Footer-->
+		<%- include('layouts/footer'); -%>
+
+        <!-- Scripts-->
+		<%- include('layouts/scripts'); -%>
+
+    </body>
+</html>
